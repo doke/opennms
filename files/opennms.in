@@ -1,0 +1,44 @@
+#!/bin/sh
+
+# PROVIDE: opennms 
+# REQUIRE: postgresql 
+#
+# Add the following lines to /etc/rc.conf.local or /etc/rc.conf
+# to enable this service:
+#
+# opennms_enable (bool):   Set to NO by default.
+#               Set it to YES to enable doormand.
+#
+. %%RC_SUBR%%
+
+name="opennms"
+rcvar=${name}_enable
+
+command=%%PREFIX%%/${name}/bin/${name}
+
+load_rc_config $name
+
+: ${opennms_enable="NO"}
+
+extra_commands="check pause resume kill initdir"
+
+start_cmd="${command} start"
+stop_cmd="${command} stop"
+restart_cmd="${command} restart"
+status_cmd="${command} status"
+check_cmd="${command} check"
+pause_cmd="${command} pause"
+resume_cmd="${command} resume"
+kill_cmd="${command} kill"
+initdir_cmd="opennms_initdir"
+
+opennms_initdir()
+{
+	echo "Creating data directory at %%PREFIX%%/opennms-data";
+	for i in etc logs/controller logs/daemon logs/webapp share/reports share/rrd/response share/rrd/snmp;
+	do mkdir -p %%PREFIX%%/opennms-data/$i;
+	cp -nR %%PREFIX%%/opennms/etc %%PREFIX%%/opennms-data/;
+	done
+}
+
+run_rc_command "$1"

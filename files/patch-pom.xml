@@ -1,0 +1,38 @@
+--- pom.xml.orig	2010-02-10 04:54:35.000000000 +0800
++++ pom.xml	2010-02-11 09:30:57.000000000 +0800
+@@ -376,7 +376,7 @@
+             </goals>
+             <configuration>
+               <!- NESTED COMMENT need another database to drop the targeted one NESTED COMMENT ->
+-              <user>postgres</user>
++              <user>pgsql</user>
+               <password></password>
+               <url>jdbc:postgresql://localhost:5432/template1</url>
+               <autocommit>true</autocommit>
+@@ -394,7 +394,7 @@
+             </goals>
+             <configuration>
+               <url>jdbc:postgresql://localhost:5432/template1</url>
+-              <user>postgres</user>
++              <user>pgsql</user>
+               <password></password>
+               <autocommit>true</autocommit>
+               <sqlCommand>create database test</sqlCommand>
+@@ -557,7 +557,7 @@
+     <mock.leaveDatabaseOnFailure>false</mock.leaveDatabaseOnFailure>
+     <mock.db.driver>org.postgresql.Driver</mock.db.driver>
+     <mock.db.url>jdbc:postgresql://localhost:5432/</mock.db.url>
+-    <mock.db.adminUser>postgres</mock.db.adminUser>
++    <mock.db.adminUser>pgsql</mock.db.adminUser>
+     <mock.db.adminPassword />
+     <mock.runSnmpTests>false</mock.runSnmpTests>
+     <mock.snmpHost>localhost</mock.snmpHost>
+@@ -587,7 +587,7 @@
+     <install.database.name>opennms</install.database.name>
+     <install.database.user>opennms</install.database.user>
+     <install.database.password>opennms</install.database.password>
+-    <install.database.admin.user>postgres</install.database.admin.user>
++    <install.database.admin.user>pgsql</install.database.admin.user>
+     <install.database.admin.password />
+     <install.database.driver>org.postgresql.Driver</install.database.driver> 
+     <install.database.bindir>/usr/bin</install.database.bindir>

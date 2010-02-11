@@ -1,0 +1,19 @@
+1st run
+%%PREFIX%%/opennms/bin/runjava -s
+Then create
+%%PREFIX%%/opennms/etc/opennms.conf
+& add 
+START_TIMEOUT=0 to it
+then run
+%%PREFIX%%/opennms/bin/install -dis
+to initialise the DB
+edit /etc/rc.conf & add
+opennms_enable="YES"
+& run
+%%PREFIX%%/etc/rc.d/opennms start
+you should now be able to login to opennms by pointing your browser to
+http://localhost:8980/opennms/
+u: admin
+p: admin
+If you have issues starting OpenNMS make sure your systems hostname is
+resolvable either via DNS or via your hosts file.

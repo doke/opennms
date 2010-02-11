@@ -1,0 +1,12 @@
+--- maven/conf/settings.xml.orig	2010-01-06 01:50:28.000000000 +0800
++++ maven/conf/settings.xml	2010-02-11 09:33:15.000000000 +0800
+@@ -52,7 +52,8 @@
+    | Default: ~/.m2/repository
+   <localRepository>/path/to/local/repo</localRepository>
+   -->
+-
++<localRepository>${WRKSRC}/m2/repository</localRepository>
++  
+   <!-- interactiveMode
+    | This will determine whether maven prompts you when it needs input. If set to false,
+    | maven will use a sensible default value, perhaps based on some other setting, for
